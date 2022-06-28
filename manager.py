@@ -17,14 +17,17 @@ class Manager(commands.Cog):
         if message.author == self.bot.user: # We don't need analyse bot message's so I return the function
             return
         
-        badwords = ["XD"]
-
+        badwords = ["cabrão", "fdp"]
+        have = False
         for badword in badwords:
             if badword in message.content:
-                await message.channel.send(
-                    f'{message.author.name}, não ofenda os outros.', tts=True, delete_after=10.0 , mention_author=True
-                )
-                await message.delete()
+                have=True
+                bad = badword
+        if have:
+            await message.channel.send(
+                f'{message.author.mention}, não pode dizer a palavra ||{bad}||', delete_after=10.0 , mention_author=True
+            )
+            await message.delete()
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error): # Protection's for command's

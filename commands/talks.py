@@ -9,17 +9,12 @@ class Talks(commands.Cog):
 
     @commands.command(name="olá", help="Dá as boas-vindas (Sem argumentos)")
     async def send_hello(self, ctx):
-        name = ctx.author.name
-        response = "Olá, " + name + "!"
-        
-        await ctx.send(response)
+        await ctx.send("Olá, {}!".format(ctx.message.author.mention))
 
     @commands.command(name="boa_noite", help="Dá as boas noites (Sem argumentos)")
     async def send_goodNight(self, ctx):
-        name = ctx.author.name
-        response = "Boa noite, " + name + "!"
-        
-        await ctx.send(response)
+        await ctx.send("Boa noite, {}!".format(ctx.message.author.mention))
+
     @commands.command(name="segredo", help="Envia um segredo em privado ao usuário (Sem argumentos)")
     async def secret(self, ctx):
         try:

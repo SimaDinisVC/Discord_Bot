@@ -1,5 +1,3 @@
-from distutils import extension
-from multiprocessing import managers
 import os
 from discord.ext import commands # to use commands and tasks with the bot
 from dotenv import load_dotenv # to use load the .env
