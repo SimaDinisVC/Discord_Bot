@@ -22,5 +22,5 @@ class Talks(commands.Cog):
         except discord.errors.Forbidden:
             await ctx.send("Não te consigo contactar, habilita a opção de 'qualquer pessoa do servidor pode mandar mensagem'! - (Opções > Privacidade)")
 
-def setup(bot):
-    bot.add_cog(Talks(bot))
+async def setup(bot):
+    await bot.add_cog(Talks(bot))

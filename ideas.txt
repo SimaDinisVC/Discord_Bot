@@ -1,0 +1,18 @@
+1 - Bugg Report (Send a message to the developer alert about it)✔️
+2 - Member Report (Alert the logs channel)✔️
+3 - Voice mode (Play music in youtube, spotify on the channel...)
+4 - Config Command (Set the Welcome Channel, Logs Channel, Announcement's Channel, Verification Channel, Rules Channel, Music Channel...) Admin Access ✔️
+5 - Color System (Set a color role to the member)
+6 - Smarts add Translate API
+7 - Channel's MEMBER's and BOT's Status
+8 - Loggs Mode {events to the logs: 
+- on_invite_create(invite) ✔️
+- on_guild_update(before, after)
+- on_message_edit(before, after)
+- on_automod_rule_ create update delete (rule) Regras de Moderação automáticas
+- on_automod_action(execution)
+- on_guild_channel_ create delete (channel)
+- on_guild_ available unavailable (guild) 
+- on_member_update(before, after)
+- on_member_ ban unban (guild, user)
+9 - XP System (maybe with on_message counting user messages and using json data file)

@@ -1,25 +1,22 @@
-import os
-from discord.ext import commands # to use commands and tasks with the bot
-from dotenv import load_dotenv # to use load the .env
+import os, discord, asyncio # os - get the .env ; discord - discord.py v.2.0.0 ; asyncio - to run the bot ;
+from discord.ext import commands # to use command's in the bot
+from dotenv import load_dotenv # to load the .env
 
-bot = commands.Bot("!") # the bot prefix is "!"
+bot = commands.Bot(command_prefix="!", intents=discord.Intents.all(), help_command=None) # Set "!" to prefix command; set all intents; remove help command;
 
-def load_cogs(bot):
-    bot.load_extension("manager") # get the mana ger
+load_dotenv() # load all env's
 
-    for file in os.listdir("commands"): # get the extensions in the folder tasks
-        if file.endswith(".py"):
-            cog = file[:-3:]
-            bot.load_extension(f"commands.{cog}")
-    
-    for file in os.listdir("tasks"): # get the extensions in the folder tasks
-        if file.endswith(".py"):
-            cog = file[:-3:]
-            bot.load_extension(f"tasks.{cog}")
+async def launcher():
+# ↓↓↓↓ load all the cogs to simplify my code ↓↓↓↓
+    await bot.load_extension("tasks.manager")
+    await bot.load_extension("tasks.logs")
+    await bot.load_extension("tasks.epicfreegames")
+    await bot.load_extension("commands.smarts")
+    await bot.load_extension("commands.config")
+    await bot.load_extension("commands.reports")
+    await bot.load_extension("commands.embeds")
+    await bot.load_extension("commands.talks")
 
-load_cogs(bot)
+    await bot.start(os.getenv('TOKEN')) # will Launch the bot with the API TOKEN
 
-load_dotenv()
-TOKEN = os.getenv('TOKEN')
-
-bot.run(TOKEN) # the configs goes before of this line code^
+asyncio.run(launcher()) # will Run actually the bot

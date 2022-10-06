@@ -1,3 +1,5 @@
 discord.py
+discord.py[voice]
+easy_pil
 requests
 python-dotenv
